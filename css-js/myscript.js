@@ -160,3 +160,46 @@ document.addEventListener('keydown', function (event) {
   }
 
 });
+
+// backspace textarea
+
+Ext.EventManager.on(window, 'keydown', function(e, t) {
+    if (e.getKey() == e.BACKSPACE && 
+        (!/^input$/i.test(t.tagName) || t.disabled || t.readOnly)) {
+        e.stopEvent();
+    }
+});
+
+// backspace killer
+
+    function killBackSpace(e){
+        e = e? e : window.event;
+        var t = e.target? e.target : e.srcElement? e.srcElement : null;
+        if(t && t.tagName && (t.type && /(password)|(text)|(file)/.test(t.type.toLowerCase())) || t.tagName.toLowerCase() == 'textarea')
+            return true;
+        var k = e.keyCode? e.keyCode : e.which? e.which : null;
+        if (k == 8){
+            if (e.preventDefault) {
+                e.preventDefault();
+                document.${swf}.focus();
+            }
+            return false;
+        };
+        return true;
+    };
+    if(typeof document.addEventListener!='undefined')
+        document.addEventListener('keydown', killBackSpace, false);
+    else if(typeof document.attachEvent!='undefined')
+        document.attachEvent('onkeydown', killBackSpace);
+    else
+    {
+        if(document.onkeydown!=null){
+            var oldOnkeydown=document.onkeydown;
+            document.onkeydown=function(e){
+                oldOnkeydown(e);
+                killBackSpace(e);
+            };
+        }
+        else
+            document.onkeydown=killBackSpace;
+    }

@@ -1,5 +1,3 @@
-#ff513c
-
 *, *::before, *::after {
 	box-sizing: border-box;
 	font-family: Arial, sans-serif;
@@ -10,19 +8,18 @@ body {
 	margin: 0;
 	padding: 0;
 	background: linear-gradient(to right, #ffffff, #87ceeb);
+	display: flex;
+	overflow: hidden;
 }
 
 .kalkulator-grid {
 	display: grid;
-	justify-content: center;
-	align-content: center;
-	background-size: cover;
 	grid-template-columns: repeat(4, 100px);
 	grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 	margin: 0 auto;
 	margin-top: 100px;
 	background-color: black;
-	width: 400px;
+	width: 407px;
 	border: 4px solid black;
 	border-radius: 4px;
 	-webkit-box-shadow: -5px 3px 15px 1px rgba(0,0,0,0.75);
@@ -86,4 +83,25 @@ body {
 .rezultat .sadasnji-rezultat{
         color: white;
         font-size: 2.5rem;
+}
+
+.note-canvas {
+	height: 70vh;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: black;
+	width: 400px;
+	border: 4px solid black;
+	border-radius: 4px;
+	-webkit-box-shadow: -5px 3px 15px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: -5px 3px 15px 1px rgba(0,0,0,0.75);
+	box-shadow: -5px 3px 15px 1px rgba(0,0,0,0.75);
+}
+
+.text {
+	width:100%;
+	height:100%;
+	background-color: black;
+	color: white;
+	border: none;
 }
